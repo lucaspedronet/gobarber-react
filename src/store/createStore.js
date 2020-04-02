@@ -1,9 +1,10 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+/* eslint-disable import/no-cycle */
+import { compose, applyMiddleware, createStore } from 'redux';
 
-export default (reducers, middleware) => {
+export default (reducers, middlewares) => {
   const enhancer =
     process.env.NODE_ENV === 'development'
-      ? compose(console.tron.createEnhancer(), applyMiddleware(...middleware))
-      : applyMiddleware(...middleware);
+      ? compose(console.tron.createEnhancer(), applyMiddleware(...middlewares))
+      : applyMiddleware(...middlewares);
   return createStore(reducers, enhancer);
 };
