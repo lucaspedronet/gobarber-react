@@ -32,11 +32,9 @@ module.exports = {
     "no-console": ["error", { allow: ["tron"] }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-props-no-spreading": ["error", {
-      "html": "ignore",
-      "custom": "ignore",
-      "explicitSpread": "ignore",
-  }]
+    "import/extensions": ["error", "never"],
+    "import/no-unresolved": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   settings: {
     "import/resolver": {

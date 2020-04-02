@@ -19,7 +19,7 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 25px;
 
     input {
       background: rgba(0,0,0,0.1);
@@ -34,6 +34,14 @@ export const Content = styled.div`
       &::placeholder {
         color: rgba(255,255,255,.7)
       }
+    }
+
+    span {
+      color: #FFF333;
+      align-self: flex-start;
+      margin: 0 0 15px;
+      font-size: 12px;
+
     }
 
     button {
