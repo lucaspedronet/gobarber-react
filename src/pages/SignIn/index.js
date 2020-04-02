@@ -2,7 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { signInRequest } from '~/store/modulos/auth/actions';
 
 import Logo from '~/assets/logo.svg';
 
@@ -16,8 +18,11 @@ export default function SignIn() {
       .required('O nome é obrigatório!'),
   });
 
-  function handleSubmit(parms) {
-    console.tron.log(parms);
+  const dispatch = useDispatch();
+
+  function handleSubmit({ email, password }) {
+    // console.tron.log(email, password);
+    dispatch(signInRequest(email, password));
   }
 
   return (

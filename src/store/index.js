@@ -10,10 +10,9 @@ const sagaMonitor =
     : null;
 
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+const middlewares = [sagaMiddleware];
 
-const middleware = [sagaMiddleware];
-
-const store = createStore(rootReducer, middleware);
+const store = createStore(rootReducer, middlewares);
 
 sagaMiddleware.run(rootSaga);
 
