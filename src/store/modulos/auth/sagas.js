@@ -12,14 +12,14 @@ function* authRequest({ payload }) {
     password,
   });
 
-  const { token, active, profile } = response.data;
+  const { token, user } = response.data;
 
-  if (!active) {
+  if (!user.active) {
     console.tron.error('Error você precisa ativar seu login!');
   }
 
-  if (profile === 'provider') {
-    yield put(signInSuccess(token));
+  if (user.profile === 'provider') {
+    yield put(signInSuccess(token, user));
     history.push('/dashboard');
   }
 }
