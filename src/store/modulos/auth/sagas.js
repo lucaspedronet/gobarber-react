@@ -1,11 +1,10 @@
-import { put, all, takeLatest, call } from 'redux-saga/effects';
-
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import api from '~/services/api';
 import history from '~/services/history';
 
 import { signInSuccess } from './actions';
 
-function* authResquest({ payload }) {
+function* authRequest({ payload }) {
   const { email, password } = payload;
 
   const response = yield call(api.post, `/v1/sessions`, {
@@ -13,17 +12,16 @@ function* authResquest({ payload }) {
     password,
   });
 
-  const { token, user } = response.data;
+  const { token, active, profile } = response.data;
 
-  if (!user.active) {
+  if (!active) {
     console.tron.error('Error você precisa ativar seu login!');
-    return;
   }
 
-  if (user.profile === 'provider') {
-    yield put(signInSuccess(token, user));
+  if (profile === 'provider') {
+    yield put(signInSuccess(token));
     history.push('/dashboard');
   }
 }
 
-export default all([takeLatest('@auth/SIGN_IN_REQUEST', authResquest)]);
+export default all([takeLatest('@auth/SIGN_IN_REQUEST', authRequest)]);

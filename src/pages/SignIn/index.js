@@ -14,14 +14,13 @@ export default function SignIn() {
       .email('Informe um e-mail válido!')
       .required('O e-mail é obrigatório!'),
     password: Yup.string()
-      .min(6, 'Nome deve conter no mínimo 6 cacacteres!')
-      .required('O nome é obrigatório!'),
+      .min(6, 'Sua senha deve conter no mínimo 6 cacacteres!')
+      .required('Senha é obrigatório!'),
   });
 
   const dispatch = useDispatch();
 
   function handleSubmit({ email, password }) {
-    // console.tron.log(email, password);
     dispatch(signInRequest(email, password));
   }
 

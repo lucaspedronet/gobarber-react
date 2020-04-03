@@ -34,6 +34,7 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     "import/extensions": ["error", "never"],
     "import/no-unresolved": "off",
+    "import/named": "off",
     "react/jsx-props-no-spreading": "off"
   },
   settings: {
