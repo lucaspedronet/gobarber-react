@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darken } from 'polished'
+import { darken } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -22,26 +22,44 @@ export const Content = styled.div`
     margin-top: 25px;
 
     input {
-      background: rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.1);
       height: 44px;
       border: 0px;
       border-radius: 4px;
       padding: 0 15px;
-      color: #FFF;
+      color: #fff;
       margin: 0 0 10px;
       align-self: stretch;
 
       &::placeholder {
-        color: rgba(255,255,255,.7)
+        color: rgba(255, 255, 255, 0.7);
       }
     }
 
+    select {
+      background: rgba(0, 0, 0, 0.1);
+      height: 44px;
+      border: 0px;
+      border-radius: 4px;
+      padding: 0 15px;
+      color: #fff;
+      margin: 0 0 10px;
+      align-self: stretch;
+
+      display: inline-block;
+      font-size: 12;
+      font-weight: normal;
+      line-height: 1;
+      min-width: 1;
+      padding: 0.16666666666667em 0.5em;
+      text-align: center;
+    }
+
     span {
-      color: #FFF333;
+      color: #fff333;
       align-self: flex-start;
       margin: 0 0 15px;
       font-size: 12px;
-
     }
 
     button {
@@ -49,28 +67,27 @@ export const Content = styled.div`
       height: 44px;
       background: #3b9eff;
       font-weight: bold;
-      color: #FFF;
+      color: #fff;
       border: 0px;
       border-radius: 4px;
       align-self: stretch;
-      transition: background .2s;
+      transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.07, '#3b9eff')}
+        background: ${darken(0.07, '#3b9eff')};
       }
     }
 
     a {
       text-decoration: none;
       font-size: 16px;
-      color: #FFF;
+      color: #fff;
       margin-top: 15px;
       opacity: 0.8;
 
       &:hover {
         opacity: 1;
       }
-
     }
   }
 `;
