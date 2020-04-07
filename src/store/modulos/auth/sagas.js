@@ -14,7 +14,7 @@ function* signIn({ payload }) {
       password,
     });
 
-    const { token, user } = response.data;
+    const { token, user } = response.data.data;
 
     if (!user.active) {
       toast.error('Seu login não esta ativado!');
