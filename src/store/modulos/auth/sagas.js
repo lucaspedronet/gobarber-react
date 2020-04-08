@@ -5,7 +5,7 @@ import history from '~/services/history';
 
 import { signInSuccess, signFailure } from './actions';
 
-function* signIn({ payload }) {
+export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
@@ -32,13 +32,13 @@ function* signIn({ payload }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
     history.push('/dashboard');
   } catch (error) {
-    console.tron.error(error);
+    console.log(error);
     toast.error('Falha na autenticação, verifique seus dados!');
     yield put(signFailure());
   }
 }
 
-function* signUp({ payload }) {
+export function* signUp({ payload }) {
   try {
     const { name, email, password, phone, profile } = payload;
 
@@ -69,7 +69,6 @@ function setToken({ payload }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
   }
 }
-
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
