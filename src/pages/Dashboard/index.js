@@ -8,6 +8,8 @@ import {
   setSeconds,
   isBefore,
   parseISO,
+  setMilliseconds,
+  isEqual,
 } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 import ptBr from 'date-fns/locale/pt-BR';
@@ -38,13 +40,16 @@ export default function Darshboard() {
 
       // add mais informações aos agendamentos
       const data = range.map((hour) => {
-        const checkDate = setSeconds(setMinutes(setHours(date, hour), 0), 0);
+        const checkDate = setMilliseconds(
+          setSeconds(setMinutes(setHours(date, hour), 0), 0),
+          0
+        );
         const compareDate = utcToZonedTime(checkDate, timezone);
         return {
           time: `${hour}:00h`,
           past: isBefore(compareDate, new Date()),
-          appointment: response.data.find(
-            (a) => parseISO(a.date).toString() === compareDate.toString()
+          appointment: response.data.find((a) =>
+            isEqual(parseISO(a.date), compareDate)
           ),
         };
       });
