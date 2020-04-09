@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateProfileRequest } from '~/store/modulos/account/actions';
+import { signOutRequest } from '~/store/modulos/auth/actions';
 
 import AvatarInput from './components/AvatarInput';
 import { Container, ContainerForm, Linha } from './styles';
@@ -25,7 +26,10 @@ export default function Profile() {
     console.tron.log(data);
   }
 
-  function signOut() {}
+  function signOut() {
+    dispatch(signOutRequest());
+  }
+
   return (
     <Container>
       <ContainerForm>

@@ -10,7 +10,6 @@ export default function AvatarInput() {
    * as informaççoes serão guardadas no defaultValue.
    */
   const { defaultValue, registerField } = useField('avatar');
-  console.tron.log(defaultValue);
 
   const [file, setFile] = useState(defaultValue && defaultValue.file);
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);
@@ -32,7 +31,6 @@ export default function AvatarInput() {
     data.append('file', e.target.files[0]);
 
     const response = await api.post('/v1/files', data);
-    console.tron.log(response);
 
     const { id, url } = response.data;
 
