@@ -5,12 +5,17 @@ import api from '~/services/api';
 
 export function* updateProfile({ payload }) {
   try {
-    const { nome, email, username, phone, ...rest } = payload.data;
+    const { name, email, username, phone, avatar_id, ...rest } = payload.data;
 
-    const profile =
-      ({ nome, email, username, phone }, rest.oldPassword ? rest : {});
+    const profile = {
+      name,
+      email,
+      username,
+      phone,
+      avatar_id,
+      ...(rest.oldPassword ? rest : {}),
+    };
 
-    console.tron.log(profile);
     const response = yield call(api.put, `/v1/users`, profile);
 
     yield put(updateProfileSuccess(response.data));
