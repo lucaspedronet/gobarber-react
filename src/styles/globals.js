@@ -4,6 +4,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
 
   * {
     margin: 0px;
@@ -27,6 +28,7 @@ export default createGlobalStyle`
 
   body, input, button {
     font: 14px 'Roboto', san-serif;
+    font-family: Helvetica, sans-serif;
   }
 
   a {

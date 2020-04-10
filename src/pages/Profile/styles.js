@@ -23,33 +23,33 @@ export const ContainerForm = styled.div`
     margin-top: 25px;
 
     input {
-      background: #262626;
+      background: #24232b;
       height: 44px;
       border: 0px;
       border-radius: 4px;
       padding: 0 15px;
-      color: rgba(217, 79, 48, 0.7);
+      color: #bfbfbf;
       margin: 0 0 10px;
       align-self: stretch;
 
       &::placeholder {
-        color: rgba(217, 79, 48, 0.7);
+        color: #bfbfbf;
       }
     }
 
     button {
       margin: 20px 0 0;
       height: 44px;
-      background: #d94f30;
+      background: #fd8f01;
       font-weight: bold;
-      color: #fff;
+      color: #f3f7fb;
       border: 0px;
       border-radius: 4px;
       align-self: stretch;
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.07, '#F23005')};
+        background: ${darken(0.09, '#FD8F01')};
       }
     }
   }
@@ -57,16 +57,16 @@ export const ContainerForm = styled.div`
     width: 100%;
     margin: 10px 0 0;
     height: 44px;
-    background: #262626;
+    background: #d94f30;
     font-weight: bold;
-    color: #fff;
+    color: #f3f7fb;
     border: 0px;
     border-radius: 4px;
     align-self: stretch;
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.07, '#262626')};
+      background: ${darken(0.07, '#D94F30')};
     }
   }
 `;

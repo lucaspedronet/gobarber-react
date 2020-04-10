@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
   max-width: 600px;
   margin: 50px auto;
 
@@ -41,29 +42,29 @@ export const Time = styled.li`
   cursor: pointer;
 
   &:hover {
-    background: ${darken(0.07, '#F23005')};
+    border: 1px solid ${darken(0.07, '#FF951F')};
   }
 
   opacity: ${(props) => (props.past ? 0.3 : 1)};
 
   strong {
     display: block;
-    color: ${(props) => (props.available ? '#BFBFBF' : '#D94F30')};
+    color: ${(props) => (props.available ? '#BFBFBF' : '#FD8F01')};
     font-size: 28px;
     font-weight: normal;
 
-    &:hover {
+    /* &:hover {
       color: ${darken(0.07, '#BFBFBF')};
-    }
+    } */
   }
 
   span {
     display: block;
     margin-top: 3px;
-    color: ${(props) => (props.available ? '#BFBFBF' : '#D94F30')};
+    color: ${(props) => (props.available ? '#BFBFBF' : '#FD8F01')};
 
-    &:hover {
+    /* &:hover {
       color: ${darken(0.07, '#BFBFBF')};
-    }
+    } */
   }
 `;

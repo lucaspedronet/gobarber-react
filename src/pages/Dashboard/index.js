@@ -15,14 +15,16 @@ import { utcToZonedTime } from 'date-fns-tz';
 import ptBr from 'date-fns/locale/pt-BR';
 
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { Modal } from '@material-ui/core';
 import { Container, Time } from './styles';
 import api from '~/services/api';
 
-const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 
 export default function Darshboard() {
   const [schedule, setSchedule] = useState([]);
   const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
 
   const dateFormatted = useMemo(
     () => format(date, "d 'de' MMMM", { locale: ptBr }),
@@ -67,6 +69,10 @@ export default function Darshboard() {
   function handleNextDay() {
     setDate(addDays(date, 1));
   }
+
+  function handleOpen() {
+    setOpen(!open);
+  }
   return (
     <Container>
       <header>
@@ -79,9 +85,23 @@ export default function Darshboard() {
         </button>
       </header>
 
+      <Modal
+        open={open}
+        onClose={handleOpen}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        <p>Testando</p>
+      </Modal>
+
       <ul>
         {schedule.map((time) => (
-          <Time key={time.time} past={time.past} available={!time.appointment}>
+          <Time
+            key={time.time}
+            past={time.past}
+            available={!time.appointment}
+            onClick={handleOpen}
+          >
             <strong>{time.time}</strong>
             <span>
               {time.appointment ? time.appointment.profiles.name : 'Em aberto'}
