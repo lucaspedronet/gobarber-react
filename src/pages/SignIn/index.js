@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { signInRequest } from '~/store/modulos/auth/actions';
 
-import Logo from '~/assets/logo.svg';
+import Logo from '~/assets/logos/logo-purple-primary-orange.svg';
 
 export default function SignIn() {
   const schema = Yup.object().shape({

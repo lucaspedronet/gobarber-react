@@ -1,0 +1,1707 @@
+{
+"@material-ui/core": {
+"parsed": 364205,
+"gzip": 100301
+},
+"@material-ui/core/Paper.esm": {
+"parsed": 67028,
+"gzip": 20931
+},
+"@material-ui/core/Popper": {
+"parsed": 28747,
+"gzip": 10320
+},
+"@material-ui/core/Textarea": {
+"parsed": 5189,
+"gzip": 2169
+},
+"@material-ui/core/styles/createMuiTheme": {
+"parsed": 22206,
+"gzip": 7694
+},
+"@material-ui/core/useMediaQuery": {
+"parsed": 2563,
+"gzip": 1061
+},
+"@material-ui/lab": {
+"parsed": 202639,
+"gzip": 60309
+},
+"@material-ui/styles": {
+"parsed": 52039,
+"gzip": 15614
+},
+"@material-ui/system": {
+"parsed": 17239,
+"gzip": 4520
+},
+"Alert": {
+"parsed": 87577,
+"gzip": 27758
+},
+"AlertTitle": {
+"parsed": 68871,
+"gzip": 21696
+},
+"AppBar": {
+"parsed": 68706,
+"gzip": 21581
+},
+"Autocomplete": {
+"parsed": 136059,
+"gzip": 42833
+},
+"Avatar": {
+"parsed": 69838,
+"gzip": 21898
+},
+"AvatarGroup": {
+"parsed": 70879,
+"gzip": 22502
+},
+"Backdrop": {
+"parsed": 72499,
+"gzip": 22427
+},
+"Badge": {
+"parsed": 69999,
+"gzip": 21818
+},
+"BottomNavigation": {
+"parsed": 67088,
+"gzip": 21075
+},
+"BottomNavigationAction": {
+"parsed": 79811,
+"gzip": 25345
+},
+"Box": {
+"parsed": 73592,
+"gzip": 22363
+},
+"Breadcrumbs": {
+"parsed": 84689,
+"gzip": 26860
+},
+"Button": {
+"parsed": 84016,
+"gzip": 25823
+},
+"ButtonBase": {
+"parsed": 78280,
+"gzip": 24622
+},
+"ButtonGroup": {
+"parsed": 87498,
+"gzip": 27070
+},
+"Card": {
+"parsed": 67538,
+"gzip": 21200
+},
+"CardActionArea": {
+"parsed": 79397,
+"gzip": 25143
+},
+"CardActions": {
+"parsed": 66738,
+"gzip": 20937
+},
+"CardContent": {
+"parsed": 66665,
+"gzip": 20893
+},
+"CardHeader": {
+"parsed": 69740,
+"gzip": 21994
+},
+"CardMedia": {
+"parsed": 67039,
+"gzip": 21106
+},
+"Checkbox": {
+"parsed": 86465,
+"gzip": 27447
+},
+"Chip": {
+"parsed": 86972,
+"gzip": 26754
+},
+"CircularProgress": {
+"parsed": 68791,
+"gzip": 21725
+},
+"ClickAwayListener": {
+"parsed": 4035,
+"gzip": 1627
+},
+"Collapse": {
+"parsed": 72680,
+"gzip": 22510
+},
+"Container": {
+"parsed": 67859,
+"gzip": 21254
+},
+"CssBaseline": {
+"parsed": 66669,
+"gzip": 20972
+},
+"Dialog": {
+"parsed": 87527,
+"gzip": 27445
+},
+"DialogActions": {
+"parsed": 66782,
+"gzip": 20955
+},
+"DialogContent": {
+"parsed": 66902,
+"gzip": 20994
+},
+"DialogContentText": {
+"parsed": 68721,
+"gzip": 21608
+},
+"DialogTitle": {
+"parsed": 68951,
+"gzip": 21705
+},
+"Divider": {
+"parsed": 67378,
+"gzip": 21219
+},
+"Drawer": {
+"parsed": 89247,
+"gzip": 27238
+},
+"ExpansionPanel": {
+"parsed": 76259,
+"gzip": 24057
+},
+"ExpansionPanelActions": {
+"parsed": 66774,
+"gzip": 20948
+},
+"ExpansionPanelDetails": {
+"parsed": 66626,
+"gzip": 20882
+},
+"ExpansionPanelSummary": {
+"parsed": 82400,
+"gzip": 26226
+},
+"Fab": {
+"parsed": 81094,
+"gzip": 25360
+},
+"Fade": {
+"parsed": 28388,
+"gzip": 9471
+},
+"FilledInput": {
+"parsed": 78237,
+"gzip": 24384
+},
+"FormControl": {
+"parsed": 69067,
+"gzip": 21550
+},
+"FormControlLabel": {
+"parsed": 70170,
+"gzip": 22087
+},
+"FormGroup": {
+"parsed": 66689,
+"gzip": 20779
+},
+"FormHelperText": {
+"parsed": 68000,
+"gzip": 21176
+},
+"FormLabel": {
+"parsed": 68107,
+"gzip": 21156
+},
+"Grid": {
+"parsed": 69789,
+"gzip": 21936
+},
+"GridList": {
+"parsed": 67168,
+"gzip": 21134
+},
+"GridListTile": {
+"parsed": 68402,
+"gzip": 21478
+},
+"GridListTileBar": {
+"parsed": 67895,
+"gzip": 21312
+},
+"Grow": {
+"parsed": 28988,
+"gzip": 9683
+},
+"Hidden": {
+"parsed": 70644,
+"gzip": 22264
+},
+"Icon": {
+"parsed": 67481,
+"gzip": 21184
+},
+"IconButton": {
+"parsed": 80431,
+"gzip": 25176
+},
+"Input": {
+"parsed": 77187,
+"gzip": 24177
+},
+"InputAdornment": {
+"parsed": 69759,
+"gzip": 22035
+},
+"InputBase": {
+"parsed": 75304,
+"gzip": 23697
+},
+"InputLabel": {
+"parsed": 69955,
+"gzip": 21627
+},
+"LinearProgress": {
+"parsed": 69996,
+"gzip": 21675
+},
+"Link": {
+"parsed": 71253,
+"gzip": 22600
+},
+"List": {
+"parsed": 67008,
+"gzip": 20909
+},
+"ListItem": {
+"parsed": 81374,
+"gzip": 25552
+},
+"ListItemAvatar": {
+"parsed": 66789,
+"gzip": 20932
+},
+"ListItemIcon": {
+"parsed": 66860,
+"gzip": 20960
+},
+"ListItemSecondaryAction": {
+"parsed": 66693,
+"gzip": 20914
+},
+"ListItemText": {
+"parsed": 69655,
+"gzip": 21971
+},
+"ListSubheader": {
+"parsed": 67447,
+"gzip": 21241
+},
+"Menu": {
+"parsed": 93225,
+"gzip": 28802
+},
+"MenuItem": {
+"parsed": 82463,
+"gzip": 25871
+},
+"MenuList": {
+"parsed": 70715,
+"gzip": 22151
+},
+"MobileStepper": {
+"parsed": 72504,
+"gzip": 22806
+},
+"Modal": {
+"parsed": 14938,
+"gzip": 5225
+},
+"NativeSelect": {
+"parsed": 81540,
+"gzip": 25899
+},
+"NoSsr": {
+"parsed": 2177,
+"gzip": 1035
+},
+"OutlinedInput": {
+"parsed": 79256,
+"gzip": 24733
+},
+"Pagination": {
+"parsed": 88769,
+"gzip": 27443
+},
+"PaginationItem": {
+"parsed": 85130,
+"gzip": 26327
+},
+"Popover": {
+"parsed": 87591,
+"gzip": 27173
+},
+"Portal": {
+"parsed": 2870,
+"gzip": 1287
+},
+"Radio": {
+"parsed": 87492,
+"gzip": 27745
+},
+"RadioGroup": {
+"parsed": 68592,
+"gzip": 21323
+},
+"Rating": {
+"parsed": 75243,
+"gzip": 24241
+},
+"RootRef": {
+"parsed": 4616,
+"gzip": 1764
+},
+"ScopedCssBaseline": {
+"parsed": 67510,
+"gzip": 21191
+},
+"Select": {
+"parsed": 120150,
+"gzip": 35893
+},
+"Skeleton": {
+"parsed": 67681,
+"gzip": 21402
+},
+"Slide": {
+"parsed": 30443,
+"gzip": 10081
+},
+"Slider": {
+"parsed": 80536,
+"gzip": 25734
+},
+"Snackbar": {
+"parsed": 80153,
+"gzip": 25226
+},
+"SnackbarContent": {
+"parsed": 68204,
+"gzip": 21282
+},
+"SpeedDial": {
+"parsed": 90491,
+"gzip": 28714
+},
+"SpeedDialAction": {
+"parsed": 122149,
+"gzip": 38901
+},
+"SpeedDialIcon": {
+"parsed": 69232,
+"gzip": 21783
+},
+"Step": {
+"parsed": 67348,
+"gzip": 21167
+},
+"StepButton": {
+"parsed": 86583,
+"gzip": 27415
+},
+"StepConnector": {
+"parsed": 67414,
+"gzip": 21259
+},
+"StepContent": {
+"parsed": 73846,
+"gzip": 23069
+},
+"StepIcon": {
+"parsed": 69262,
+"gzip": 21626
+},
+"StepLabel": {
+"parsed": 73219,
+"gzip": 22705
+},
+"Stepper": {
+"parsed": 69555,
+"gzip": 21963
+},
+"SvgIcon": {
+"parsed": 67693,
+"gzip": 21157
+},
+"SwipeableDrawer": {
+"parsed": 96654,
+"gzip": 30361
+},
+"Switch": {
+"parsed": 85677,
+"gzip": 27008
+},
+"Tab": {
+"parsed": 80637,
+"gzip": 25701
+},
+"Table": {
+"parsed": 67235,
+"gzip": 21140
+},
+"TableBody": {
+"parsed": 66785,
+"gzip": 20932
+},
+"TableCell": {
+"parsed": 68709,
+"gzip": 21660
+},
+"TableContainer": {
+"parsed": 66653,
+"gzip": 20882
+},
+"TableFooter": {
+"parsed": 66792,
+"gzip": 20934
+},
+"TableHead": {
+"parsed": 66788,
+"gzip": 20933
+},
+"TablePagination": {
+"parsed": 146604,
+"gzip": 43170
+},
+"TableRow": {
+"parsed": 67175,
+"gzip": 21104
+},
+"TableSortLabel": {
+"parsed": 81687,
+"gzip": 25950
+},
+"Tabs": {
+"parsed": 89616,
+"gzip": 28679
+},
+"TextField": {
+"parsed": 128947,
+"gzip": 37930
+},
+"ToggleButton": {
+"parsed": 80466,
+"gzip": 25562
+},
+"ToggleButtonGroup": {
+"parsed": 67884,
+"gzip": 21386
+},
+"Toolbar": {
+"parsed": 67013,
+"gzip": 21083
+},
+"Tooltip": {
+"parsed": 106366,
+"gzip": 33656
+},
+"TreeItem": {
+"parsed": 79862,
+"gzip": 25375
+},
+"TreeView": {
+"parsed": 72981,
+"gzip": 22981
+},
+"Typography": {
+"parsed": 68318,
+"gzip": 21366
+},
+"Zoom": {
+"parsed": 28463,
+"gzip": 9594
+},
+"colorManipulator": {
+"parsed": 3881,
+"gzip": 1525
+},
+"useAutocomplete": {
+"parsed": 16077,
+"gzip": 5736
+},
+"packages/material-ui/build/umd/material-ui.production.min.js": {
+"parsed": 320872,
+"gzip": 93175
+},
+"docs.landing": {
+"parsed": 10700,
+"gzip": -1
+},
+"docs:/_app": {
+"parsed": 33700,
+"gzip": -1
+},
+"docs:/api-docs/alert": {
+"parsed": 2190,
+"gzip": -1
+},
+"docs:/api-docs/alert-title": {
+"parsed": 1180,
+"gzip": -1
+},
+"docs:/api-docs/app-bar": {
+"parsed": 1720,
+"gzip": -1
+},
+"docs:/api-docs/autocomplete": {
+"parsed": 4090,
+"gzip": -1
+},
+"docs:/api-docs/avatar": {
+"parsed": 1640,
+"gzip": -1
+},
+"docs:/api-docs/avatar-group": {
+"parsed": 1290,
+"gzip": -1
+},
+"docs:/api-docs/backdrop": {
+"parsed": 1420,
+"gzip": -1
+},
+"docs:/api-docs/badge": {
+"parsed": 1920,
+"gzip": -1
+},
+"docs:/api-docs/bottom-navigation": {
+"parsed": 1470,
+"gzip": -1
+},
+"docs:/api-docs/bottom-navigation-action": {
+"parsed": 1580,
+"gzip": -1
+},
+"docs:/api-docs/breadcrumbs": {
+"parsed": 1620,
+"gzip": -1
+},
+"docs:/api-docs/button": {
+"parsed": 2360,
+"gzip": -1
+},
+"docs:/api-docs/button-base": {
+"parsed": 2110,
+"gzip": -1
+},
+"docs:/api-docs/button-group": {
+"parsed": 1990,
+"gzip": -1
+},
+"docs:/api-docs/card": {
+"parsed": 1290,
+"gzip": -1
+},
+"docs:/api-docs/card-action-area": {
+"parsed": 1370,
+"gzip": -1
+},
+"docs:/api-docs/card-actions": {
+"parsed": 1260,
+"gzip": -1
+},
+"docs:/api-docs/card-content": {
+"parsed": 1230,
+"gzip": -1
+},
+"docs:/api-docs/card-header": {
+"parsed": 1560,
+"gzip": -1
+},
+"docs:/api-docs/card-media": {
+"parsed": 1460,
+"gzip": -1
+},
+"docs:/api-docs/checkbox": {
+"parsed": 2090,
+"gzip": -1
+},
+"docs:/api-docs/chip": {
+"parsed": 2230,
+"gzip": -1
+},
+"docs:/api-docs/circular-progress": {
+"parsed": 1840,
+"gzip": -1
+},
+"docs:/api-docs/click-away-listener": {
+"parsed": 1160,
+"gzip": -1
+},
+"docs:/api-docs/collapse": {
+"parsed": 1790,
+"gzip": -1
+},
+"docs:/api-docs/container": {
+"parsed": 1650,
+"gzip": -1
+},
+"docs:/api-docs/css-baseline": {
+"parsed": 1180,
+"gzip": -1
+},
+"docs:/api-docs/dialog": {
+"parsed": 2510,
+"gzip": -1
+},
+"docs:/api-docs/dialog-actions": {
+"parsed": 1260,
+"gzip": -1
+},
+"docs:/api-docs/dialog-content": {
+"parsed": 1240,
+"gzip": -1
+},
+"docs:/api-docs/dialog-content-text": {
+"parsed": 1270,
+"gzip": -1
+},
+"docs:/api-docs/dialog-title": {
+"parsed": 1280,
+"gzip": -1
+},
+"docs:/api-docs/divider": {
+"parsed": 1590,
+"gzip": -1
+},
+"docs:/api-docs/drawer": {
+"parsed": 1910,
+"gzip": -1
+},
+"docs:/api-docs/expansion-panel": {
+"parsed": 1750,
+"gzip": -1
+},
+"docs:/api-docs/expansion-panel-actions": {
+"parsed": 1270,
+"gzip": -1
+},
+"docs:/api-docs/expansion-panel-details": {
+"parsed": 1200,
+"gzip": -1
+},
+"docs:/api-docs/expansion-panel-summary": {
+"parsed": 1500,
+"gzip": -1
+},
+"docs:/api-docs/fab": {
+"parsed": 1890,
+"gzip": -1
+},
+"docs:/api-docs/fade": {
+"parsed": 1170,
+"gzip": -1
+},
+"docs:/api-docs/filled-input": {
+"parsed": 2660,
+"gzip": -1
+},
+"docs:/api-docs/form-control": {
+"parsed": 2150,
+"gzip": -1
+},
+"docs:/api-docs/form-control-label": {
+"parsed": 1760,
+"gzip": -1
+},
+"docs:/api-docs/form-group": {
+"parsed": 1340,
+"gzip": -1
+},
+"docs:/api-docs/form-helper-text": {
+"parsed": 1690,
+"gzip": -1
+},
+"docs:/api-docs/form-label": {
+"parsed": 1620,
+"gzip": -1
+},
+"docs:/api-docs/grid": {
+"parsed": 2330,
+"gzip": -1
+},
+"docs:/api-docs/grid-list": {
+"parsed": 1400,
+"gzip": -1
+},
+"docs:/api-docs/grid-list-tile": {
+"parsed": 1500,
+"gzip": -1
+},
+"docs:/api-docs/grid-list-tile-bar": {
+"parsed": 1570,
+"gzip": -1
+},
+"docs:/api-docs/grow": {
+"parsed": 1240,
+"gzip": -1
+},
+"docs:/api-docs/hidden": {
+"parsed": 1320,
+"gzip": -1
+},
+"docs:/api-docs/icon": {
+"parsed": 1570,
+"gzip": -1
+},
+"docs:/api-docs/icon-button": {
+"parsed": 1890,
+"gzip": -1
+},
+"docs:/api-docs/input": {
+"parsed": 2620,
+"gzip": -1
+},
+"docs:/api-docs/input-adornment": {
+"parsed": 1710,
+"gzip": -1
+},
+"docs:/api-docs/input-base": {
+"parsed": 2750,
+"gzip": -1
+},
+"docs:/api-docs/input-label": {
+"parsed": 1860,
+"gzip": -1
+},
+"docs:/api-docs/linear-progress": {
+"parsed": 1820,
+"gzip": -1
+},
+"docs:/api-docs/link": {
+"parsed": 1720,
+"gzip": -1
+},
+"docs:/api-docs/list": {
+"parsed": 1470,
+"gzip": -1
+},
+"docs:/api-docs/list-item": {
+"parsed": 2040,
+"gzip": -1
+},
+"docs:/api-docs/list-item-avatar": {
+"parsed": 1290,
+"gzip": -1
+},
+"docs:/api-docs/list-item-icon": {
+"parsed": 1310,
+"gzip": -1
+},
+"docs:/api-docs/list-item-secondary-action": {
+"parsed": 1250,
+"gzip": -1
+},
+"docs:/api-docs/list-item-text": {
+"parsed": 1570,
+"gzip": -1
+},
+"docs:/api-docs/list-subheader": {
+"parsed": 1550,
+"gzip": -1
+},
+"docs:/api-docs/menu": {
+"parsed": 2170,
+"gzip": -1
+},
+"docs:/api-docs/menu-item": {
+"parsed": 1520,
+"gzip": -1
+},
+"docs:/api-docs/menu-list": {
+"parsed": 1350,
+"gzip": -1
+},
+"docs:/api-docs/mobile-stepper": {
+"parsed": 1710,
+"gzip": -1
+},
+"docs:/api-docs/modal": {
+"parsed": 2140,
+"gzip": -1
+},
+"docs:/api-docs/native-select": {
+"parsed": 1860,
+"gzip": -1
+},
+"docs:/api-docs/no-ssr": {
+"parsed": 1090,
+"gzip": -1
+},
+"docs:/api-docs/outlined-input": {
+"parsed": 2770,
+"gzip": -1
+},
+"docs:/api-docs/pagination": {
+"parsed": 2020,
+"gzip": -1
+},
+"docs:/api-docs/pagination-item": {
+"parsed": 1750,
+"gzip": -1
+},
+"docs:/api-docs/paper": {
+"parsed": 1650,
+"gzip": -1
+},
+"docs:/api-docs/popover": {
+"parsed": 2470,
+"gzip": -1
+},
+"docs:/api-docs/popper": {
+"parsed": 1730,
+"gzip": -1
+},
+"docs:/api-docs/portal": {
+"parsed": 1120,
+"gzip": -1
+},
+"docs:/api-docs/radio": {
+"parsed": 1900,
+"gzip": -1
+},
+"docs:/api-docs/radio-group": {
+"parsed": 1230,
+"gzip": -1
+},
+"docs:/api-docs/rating": {
+"parsed": 2280,
+"gzip": -1
+},
+"docs:/api-docs/root-ref": {
+"parsed": 1200,
+"gzip": -1
+},
+"docs:/api-docs/scoped-css-baseline": {
+"parsed": 1190,
+"gzip": -1
+},
+"docs:/api-docs/select": {
+"parsed": 2720,
+"gzip": -1
+},
+"docs:/api-docs/skeleton": {
+"parsed": 1550,
+"gzip": -1
+},
+"docs:/api-docs/slide": {
+"parsed": 1320,
+"gzip": -1
+},
+"docs:/api-docs/slider": {
+"parsed": 2890,
+"gzip": -1
+},
+"docs:/api-docs/snackbar": {
+"parsed": 2500,
+"gzip": -1
+},
+"docs:/api-docs/snackbar-content": {
+"parsed": 1410,
+"gzip": -1
+},
+"docs:/api-docs/speed-dial": {
+"parsed": 2090,
+"gzip": -1
+},
+"docs:/api-docs/speed-dial-action": {
+"parsed": 1820,
+"gzip": -1
+},
+"docs:/api-docs/speed-dial-icon": {
+"parsed": 1330,
+"gzip": -1
+},
+"docs:/api-docs/step": {
+"parsed": 1420,
+"gzip": -1
+},
+"docs:/api-docs/step-button": {
+"parsed": 1420,
+"gzip": -1
+},
+"docs:/api-docs/step-connector": {
+"parsed": 1330,
+"gzip": -1
+},
+"docs:/api-docs/step-content": {
+"parsed": 1510,
+"gzip": -1
+},
+"docs:/api-docs/step-icon": {
+"parsed": 1350,
+"gzip": -1
+},
+"docs:/api-docs/step-label": {
+"parsed": 1680,
+"gzip": -1
+},
+"docs:/api-docs/stepper": {
+"parsed": 1640,
+"gzip": -1
+},
+"docs:/api-docs/svg-icon": {
+"parsed": 2040,
+"gzip": -1
+},
+"docs:/api-docs/swipeable-drawer": {
+"parsed": 1780,
+"gzip": -1
+},
+"docs:/api-docs/switch": {
+"parsed": 2250,
+"gzip": -1
+},
+"docs:/api-docs/tab": {
+"parsed": 1780,
+"gzip": -1
+},
+"docs:/api-docs/table": {
+"parsed": 1460,
+"gzip": -1
+},
+"docs:/api-docs/table-body": {
+"parsed": 1250,
+"gzip": -1
+},
+"docs:/api-docs/table-cell": {
+"parsed": 1900,
+"gzip": -1
+},
+"docs:/api-docs/table-container": {
+"parsed": 1250,
+"gzip": -1
+},
+"docs:/api-docs/table-footer": {
+"parsed": 1250,
+"gzip": -1
+},
+"docs:/api-docs/table-head": {
+"parsed": 1250,
+"gzip": -1
+},
+"docs:/api-docs/table-pagination": {
+"parsed": 2240,
+"gzip": -1
+},
+"docs:/api-docs/table-row": {
+"parsed": 1470,
+"gzip": -1
+},
+"docs:/api-docs/table-sort-label": {
+"parsed": 1610,
+"gzip": -1
+},
+"docs:/api-docs/tabs": {
+"parsed": 2310,
+"gzip": -1
+},
+"docs:/api-docs/text-field": {
+"parsed": 2970,
+"gzip": -1
+},
+"docs:/api-docs/textarea-autosize": {
+"parsed": 909,
+"gzip": -1
+},
+"docs:/api-docs/toggle-button": {
+"parsed": 1580,
+"gzip": -1
+},
+"docs:/api-docs/toggle-button-group": {
+"parsed": 1600,
+"gzip": -1
+},
+"docs:/api-docs/toolbar": {
+"parsed": 1430,
+"gzip": -1
+},
+"docs:/api-docs/tooltip": {
+"parsed": 2330,
+"gzip": -1
+},
+"docs:/api-docs/tree-item": {
+"parsed": 1570,
+"gzip": -1
+},
+"docs:/api-docs/tree-view": {
+"parsed": 1700,
+"gzip": -1
+},
+"docs:/api-docs/typography": {
+"parsed": 2370,
+"gzip": -1
+},
+"docs:/api-docs/zoom": {
+"parsed": 1200,
+"gzip": -1
+},
+"docs:/blog/2019": {
+"parsed": 3870,
+"gzip": -1
+},
+"docs:/blog/2019-developer-survey-results": {
+"parsed": 5980,
+"gzip": -1
+},
+"docs:/blog/2020-introducing-sketch": {
+"parsed": 3100,
+"gzip": -1
+},
+"docs:/blog/april-2019-update": {
+"parsed": 2760,
+"gzip": -1
+},
+"docs:/blog/august-2019-update": {
+"parsed": 1870,
+"gzip": -1
+},
+"docs:/blog/december-2019-update": {
+"parsed": 2009.9999999999998,
+"gzip": -1
+},
+"docs:/blog/july-2019-update": {
+"parsed": 1770,
+"gzip": -1
+},
+"docs:/blog/june-2019-update": {
+"parsed": 1630,
+"gzip": -1
+},
+"docs:/blog/march-2019-update": {
+"parsed": 2170,
+"gzip": -1
+},
+"docs:/blog/material-ui-v1-is-out": {
+"parsed": 6290,
+"gzip": -1
+},
+"docs:/blog/material-ui-v4-is-out": {
+"parsed": 9320,
+"gzip": -1
+},
+"docs:/blog/may-2019-update": {
+"parsed": 1960,
+"gzip": -1
+},
+"docs:/blog/november-2019-update": {
+"parsed": 2370,
+"gzip": -1
+},
+"docs:/blog/october-2019-update": {
+"parsed": 2120,
+"gzip": -1
+},
+"docs:/blog/september-2019-update": {
+"parsed": 2300,
+"gzip": -1
+},
+"docs:/company/about": {
+"parsed": 1560,
+"gzip": -1
+},
+"docs:/company/contact": {
+"parsed": 1140,
+"gzip": -1
+},
+"docs:/company/jobs": {
+"parsed": 1160,
+"gzip": -1
+},
+"docs:/components/about-the-lab": {
+"parsed": 5550,
+"gzip": -1
+},
+"docs:/components/alert": {
+"parsed": 12400,
+"gzip": -1
+},
+"docs:/components/app-bar": {
+"parsed": 30900,
+"gzip": -1
+},
+"docs:/components/autocomplete": {
+"parsed": 105000,
+"gzip": -1
+},
+"docs:/components/avatars": {
+"parsed": 8440,
+"gzip": -1
+},
+"docs:/components/backdrop": {
+"parsed": 3310,
+"gzip": -1
+},
+"docs:/components/badges": {
+"parsed": 14900,
+"gzip": -1
+},
+"docs:/components/bottom-navigation": {
+"parsed": 6210,
+"gzip": -1
+},
+"docs:/components/box": {
+"parsed": 7950,
+"gzip": -1
+},
+"docs:/components/breadcrumbs": {
+"parsed": 14300,
+"gzip": -1
+},
+"docs:/components/button-group": {
+"parsed": 6650,
+"gzip": -1
+},
+"docs:/components/buttons": {
+"parsed": 24300,
+"gzip": -1
+},
+"docs:/components/cards": {
+"parsed": 16900,
+"gzip": -1
+},
+"docs:/components/checkboxes": {
+"parsed": 16500,
+"gzip": -1
+},
+"docs:/components/chips": {
+"parsed": 21400,
+"gzip": -1
+},
+"docs:/components/click-away-listener": {
+"parsed": 3840,
+"gzip": -1
+},
+"docs:/components/container": {
+"parsed": 3830,
+"gzip": -1
+},
+"docs:/components/css-baseline": {
+"parsed": 6040,
+"gzip": -1
+},
+"docs:/components/dialogs": {
+"parsed": 42100,
+"gzip": -1
+},
+"docs:/components/dividers": {
+"parsed": 12200,
+"gzip": -1
+},
+"docs:/components/drawers": {
+"parsed": 29700,
+"gzip": -1
+},
+"docs:/components/expansion-panels": {
+"parsed": 20000,
+"gzip": -1
+},
+"docs:/components/floating-action-button": {
+"parsed": 10300,
+"gzip": -1
+},
+"docs:/components/grid": {
+"parsed": 33800,
+"gzip": -1
+},
+"docs:/components/grid-list": {
+"parsed": 11800,
+"gzip": -1
+},
+"docs:/components/hidden": {
+"parsed": 10500,
+"gzip": -1
+},
+"docs:/components/icons": {
+"parsed": 24500,
+"gzip": -1
+},
+"docs:/components/links": {
+"parsed": 6820,
+"gzip": -1
+},
+"docs:/components/lists": {
+"parsed": 25900,
+"gzip": -1
+},
+"docs:/components/material-icons": {
+"parsed": 728000,
+"gzip": -1
+},
+"docs:/components/menus": {
+"parsed": 23400,
+"gzip": -1
+},
+"docs:/components/modal": {
+"parsed": 11500,
+"gzip": -1
+},
+"docs:/components/no-ssr": {
+"parsed": 5020,
+"gzip": -1
+},
+"docs:/components/pagination": {
+"parsed": 8080,
+"gzip": -1
+},
+"docs:/components/paper": {
+"parsed": 3330,
+"gzip": -1
+},
+"docs:/components/pickers": {
+"parsed": 38200,
+"gzip": -1
+},
+"docs:/components/popover": {
+"parsed": 16800,
+"gzip": -1
+},
+"docs:/components/popper": {
+"parsed": 22500,
+"gzip": -1
+},
+"docs:/components/portal": {
+"parsed": 3290,
+"gzip": -1
+},
+"docs:/components/progress": {
+"parsed": 21700,
+"gzip": -1
+},
+"docs:/components/radio-buttons": {
+"parsed": 15100,
+"gzip": -1
+},
+"docs:/components/rating": {
+"parsed": 11000,
+"gzip": -1
+},
+"docs:/components/selects": {
+"parsed": 29500,
+"gzip": -1
+},
+"docs:/components/skeleton": {
+"parsed": 10100,
+"gzip": -1
+},
+"docs:/components/slider": {
+"parsed": 14600,
+"gzip": -1
+},
+"docs:/components/snackbars": {
+"parsed": 24800,
+"gzip": -1
+},
+"docs:/components/speed-dial": {
+"parsed": 14300,
+"gzip": -1
+},
+"docs:/components/steppers": {
+"parsed": 36200,
+"gzip": -1
+},
+"docs:/components/switches": {
+"parsed": 16000,
+"gzip": -1
+},
+"docs:/components/tables": {
+"parsed": 174000,
+"gzip": -1
+},
+"docs:/components/tabs": {
+"parsed": 19200,
+"gzip": -1
+},
+"docs:/components/text-fields": {
+"parsed": 54700,
+"gzip": -1
+},
+"docs:/components/textarea-autosize": {
+"parsed": 2810,
+"gzip": -1
+},
+"docs:/components/toggle-button": {
+"parsed": 10600,
+"gzip": -1
+},
+"docs:/components/tooltips": {
+"parsed": 17300,
+"gzip": -1
+},
+"docs:/components/transfer-list": {
+"parsed": 9220,
+"gzip": -1
+},
+"docs:/components/transitions": {
+"parsed": 10800,
+"gzip": -1
+},
+"docs:/components/tree-view": {
+"parsed": 11200,
+"gzip": -1
+},
+"docs:/components/typography": {
+"parsed": 9700,
+"gzip": -1
+},
+"docs:/components/use-media-query": {
+"parsed": 13100,
+"gzip": -1
+},
+"docs:/customization/breakpoints": {
+"parsed": 15600,
+"gzip": -1
+},
+"docs:/customization/color": {
+"parsed": 21500,
+"gzip": -1
+},
+"docs:/customization/components": {
+"parsed": 37500,
+"gzip": -1
+},
+"docs:/customization/default-theme": {
+"parsed": 8550,
+"gzip": -1
+},
+"docs:/customization/density": {
+"parsed": 9140,
+"gzip": -1
+},
+"docs:/customization/globals": {
+"parsed": 4650,
+"gzip": -1
+},
+"docs:/customization/palette": {
+"parsed": 11900,
+"gzip": -1
+},
+"docs:/customization/spacing": {
+"parsed": 2550,
+"gzip": -1
+},
+"docs:/customization/theming": {
+"parsed": 17000,
+"gzip": -1
+},
+"docs:/customization/typography": {
+"parsed": 11600,
+"gzip": -1
+},
+"docs:/customization/z-index": {
+"parsed": 3050,
+"gzip": -1
+},
+"docs:/discover-more/backers": {
+"parsed": 2880,
+"gzip": -1
+},
+"docs:/discover-more/changelog": {
+"parsed": 1370,
+"gzip": -1
+},
+"docs:/discover-more/languages": {
+"parsed": 3320,
+"gzip": -1
+},
+"docs:/discover-more/related-projects": {
+"parsed": 7090,
+"gzip": -1
+},
+"docs:/discover-more/roadmap": {
+"parsed": 3670,
+"gzip": -1
+},
+"docs:/discover-more/showcase": {
+"parsed": 13500,
+"gzip": -1
+},
+"docs:/discover-more/team": {
+"parsed": 6510,
+"gzip": -1
+},
+"docs:/discover-more/vision": {
+"parsed": 7030,
+"gzip": -1
+},
+"docs:/getting-started/example-projects": {
+"parsed": 6110,
+"gzip": -1
+},
+"docs:/getting-started/faq": {
+"parsed": 31800,
+"gzip": -1
+},
+"docs:/getting-started/installation": {
+"parsed": 7600,
+"gzip": -1
+},
+"docs:/getting-started/learn": {
+"parsed": 8390,
+"gzip": -1
+},
+"docs:/getting-started/support": {
+"parsed": 7840,
+"gzip": -1
+},
+"docs:/getting-started/supported-components": {
+"parsed": 6190,
+"gzip": -1
+},
+"docs:/getting-started/supported-platforms": {
+"parsed": 5690,
+"gzip": -1
+},
+"docs:/getting-started/templates": {
+"parsed": 8550,
+"gzip": -1
+},
+"docs:/getting-started/templates/album": {
+"parsed": 5580,
+"gzip": -1
+},
+"docs:/getting-started/templates/blog": {
+"parsed": 7440,
+"gzip": -1
+},
+"docs:/getting-started/templates/checkout": {
+"parsed": 11200,
+"gzip": -1
+},
+"docs:/getting-started/templates/dashboard": {
+"parsed": 8470,
+"gzip": -1
+},
+"docs:/getting-started/templates/pricing": {
+"parsed": 7790,
+"gzip": -1
+},
+"docs:/getting-started/templates/sign-in": {
+"parsed": 9480,
+"gzip": -1
+},
+"docs:/getting-started/templates/sign-in-side": {
+"parsed": 9240,
+"gzip": -1
+},
+"docs:/getting-started/templates/sign-up": {
+"parsed": 9590,
+"gzip": -1
+},
+"docs:/getting-started/templates/sticky-footer": {
+"parsed": 1540,
+"gzip": -1
+},
+"docs:/getting-started/usage": {
+"parsed": 9370,
+"gzip": -1
+},
+"docs:/guides/api": {
+"parsed": 17400,
+"gzip": -1
+},
+"docs:/guides/composition": {
+"parsed": 14100,
+"gzip": -1
+},
+"docs:/guides/flow": {
+"parsed": 2210,
+"gzip": -1
+},
+"docs:/guides/interoperability": {
+"parsed": 14900,
+"gzip": -1
+},
+"docs:/guides/localization": {
+"parsed": 19700,
+"gzip": -1
+},
+"docs:/guides/migration-v0x": {
+"parsed": 7250,
+"gzip": -1
+},
+"docs:/guides/migration-v3": {
+"parsed": 22300,
+"gzip": -1
+},
+"docs:/guides/minimizing-bundle-size": {
+"parsed": 6730,
+"gzip": -1
+},
+"docs:/guides/responsive-ui": {
+"parsed": 4180,
+"gzip": -1
+},
+"docs:/guides/right-to-left": {
+"parsed": 6690,
+"gzip": -1
+},
+"docs:/guides/server-rendering": {
+"parsed": 8380,
+"gzip": -1
+},
+"docs:/guides/testing": {
+"parsed": 8330,
+"gzip": -1
+},
+"docs:/guides/typescript": {
+"parsed": 13400,
+"gzip": -1
+},
+"docs:/performance/table-component": {
+"parsed": 1440,
+"gzip": -1
+},
+"docs:/performance/table-emotion": {
+"parsed": 2960,
+"gzip": -1
+},
+"docs:/performance/table-hook": {
+"parsed": 2230,
+"gzip": -1
+},
+"docs:/performance/table-mui": {
+"parsed": 4420,
+"gzip": -1
+},
+"docs:/performance/table-raw": {
+"parsed": 613,
+"gzip": -1
+},
+"docs:/performance/table-styled-components": {
+"parsed": 2610,
+"gzip": -1
+},
+"docs:/premium-themes/onepirate": {
+"parsed": 7210,
+"gzip": -1
+},
+"docs:/premium-themes/onepirate/forgot-password": {
+"parsed": 1010,
+"gzip": -1
+},
+"docs:/premium-themes/onepirate/privacy": {
+"parsed": 4430,
+"gzip": -1
+},
+"docs:/premium-themes/onepirate/sign-in": {
+"parsed": 1070,
+"gzip": -1
+},
+"docs:/premium-themes/onepirate/sign-up": {
+"parsed": 1120,
+"gzip": -1
+},
+"docs:/premium-themes/onepirate/terms": {
+"parsed": 11800,
+"gzip": -1
+},
+"docs:/premium-themes/paperbase": {
+"parsed": 8710,
+"gzip": -1
+},
+"docs:/styles/advanced": {
+"parsed": 30600,
+"gzip": -1
+},
+"docs:/styles/api": {
+"parsed": 16000,
+"gzip": -1
+},
+"docs:/styles/basics": {
+"parsed": 17600,
+"gzip": -1
+},
+"docs:/system/api": {
+"parsed": 5850,
+"gzip": -1
+},
+"docs:/system/basics": {
+"parsed": 25100,
+"gzip": -1
+},
+"docs:/system/borders": {
+"parsed": 4040,
+"gzip": -1
+},
+"docs:/system/display": {
+"parsed": 6510,
+"gzip": -1
+},
+"docs:/system/flexbox": {
+"parsed": 5720,
+"gzip": -1
+},
+"docs:/system/palette": {
+"parsed": 4280,
+"gzip": -1
+},
+"docs:/system/positions": {
+"parsed": 2460,
+"gzip": -1
+},
+"docs:/system/shadows": {
+"parsed": 3440,
+"gzip": -1
+},
+"docs:/system/sizing": {
+"parsed": 3440,
+"gzip": -1
+},
+"docs:/system/spacing": {
+"parsed": 5970,
+"gzip": -1
+},
+"docs:/system/typography": {
+"parsed": 4220,
+"gzip": -1
+},
+"docs:/versions": {
+"parsed": 23100,
+"gzip": -1
+},
+"docs.main": {
+"parsed": 33700,
+"gzip": -1
+},
+"docs:shared:chunk/commons": {
+"parsed": 5990,
+"gzip": -1
+},
+"docs:shared:chunk/framework": {
+"parsed": 42300,
+"gzip": -1
+},
+"docs:shared:runtime/main": {
+"parsed": 6780,
+"gzip": -1
+},
+"docs:shared:runtime/webpack": {
+"parsed": 1240,
+"gzip": -1
+},
+"docs:chunk:shared": {
+"parsed": 68300,
+"gzip": -1,
+"tally": 7
+}
+}

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background: #171719;
+  box-shadow: 0 1px 8px 0px rgba(243, 247, 251, 0.5);
   width: 100%;
 `;
 
