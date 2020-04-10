@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background: linear-gradient(-90deg, #7159c1, #ab59c1);
+  background: linear-gradient(-90deg, #0d0d0d, #262626);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,17 +22,17 @@ export const Content = styled.div`
     margin-top: 25px;
 
     input {
-      background: rgba(0, 0, 0, 0.1);
+      background: #262626;
       height: 44px;
-      border: 0px;
+      border: 0.4px solid #f23005;
       border-radius: 4px;
       padding: 0 15px;
-      color: #fff;
+      color: rgba(217, 79, 48, 0.7);
       margin: 0 0 10px;
       align-self: stretch;
 
       &::placeholder {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(217, 79, 48, 0.7);
       }
     }
 
@@ -56,7 +56,7 @@ export const Content = styled.div`
     }
 
     span {
-      color: #fff333;
+      color: #d94f30;
       align-self: flex-start;
       margin: 0 0 15px;
       font-size: 12px;
@@ -65,7 +65,7 @@ export const Content = styled.div`
     button {
       margin: 5px 0 0;
       height: 44px;
-      background: #3b9eff;
+      background: #d94f30;
       font-weight: bold;
       color: #fff;
       border: 0px;
@@ -74,14 +74,14 @@ export const Content = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.07, '#3b9eff')};
+        background: ${darken(0.07, '#F23005')};
       }
     }
 
     a {
       text-decoration: none;
       font-size: 16px;
-      color: #fff;
+      color: #d94f30;
       margin-top: 15px;
       opacity: 0.8;
 

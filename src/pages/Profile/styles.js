@@ -23,24 +23,24 @@ export const ContainerForm = styled.div`
     margin-top: 25px;
 
     input {
-      background: rgba(0, 0, 0, 0.1);
+      background: #262626;
       height: 44px;
       border: 0px;
       border-radius: 4px;
       padding: 0 15px;
-      color: #fff;
+      color: rgba(217, 79, 48, 0.7);
       margin: 0 0 10px;
       align-self: stretch;
 
       &::placeholder {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(217, 79, 48, 0.7);
       }
     }
 
     button {
-      margin: 5px 0 5px;
+      margin: 20px 0 0;
       height: 44px;
-      background: #3b9eff;
+      background: #d94f30;
       font-weight: bold;
       color: #fff;
       border: 0px;
@@ -49,15 +49,15 @@ export const ContainerForm = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.07, '#3b9eff')};
+        background: ${darken(0.07, '#F23005')};
       }
     }
   }
   > button {
     width: 100%;
-    margin: 5px 0 0;
+    margin: 10px 0 0;
     height: 44px;
-    background: #ff3333;
+    background: #262626;
     font-weight: bold;
     color: #fff;
     border: 0px;
@@ -66,7 +66,7 @@ export const ContainerForm = styled.div`
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.07, '#FF3333')};
+      background: ${darken(0.07, '#262626')};
     }
   }
 `;

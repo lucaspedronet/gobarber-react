@@ -71,11 +71,11 @@ export default function Darshboard() {
     <Container>
       <header>
         <button type="button">
-          <MdChevronLeft size={36} color="#FFF" onClick={handlePrevDay} />
+          <MdChevronLeft size={36} color="#BFBFBF" onClick={handlePrevDay} />
         </button>
         <strong>{dateFormatted}</strong>
         <button type="button">
-          <MdChevronRight size={36} color="#FFF" onClick={handleNextDay} />
+          <MdChevronRight size={36} color="#BFBFBF" onClick={handleNextDay} />
         </button>
       </header>
 
@@ -85,8 +85,7 @@ export default function Darshboard() {
             <strong>{time.time}</strong>
             <span>
               {time.appointment ? time.appointment.profiles.name : 'Em aberto'}
-            </span>
-            <span>
+              <br />
               {time.appointment ? time.appointment.profiles.phone : ''}
             </span>
             <span />

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: #fff;
+  background: #262626;
   width: 100%;
 `;
 
@@ -21,12 +21,13 @@ export const Content = styled.div`
     img {
       margin-right: 20px;
       padding-right: 20px;
+      color: #d94f30;
       border-right: 1px solid #eee;
     }
 
     a {
       font-weight: bold;
-      color: #7159c1;
+      color: #d94f30;
       text-decoration: none;
     }
   }
@@ -49,7 +50,7 @@ export const Profile = styled.div`
 
     strong {
       display: block;
-      color: #333;
+      color: #aaa;
     }
 
     a {
@@ -62,7 +63,7 @@ export const Profile = styled.div`
   img {
     width: 42px;
     height: 42px;
-    border: 1px solid #eee;
+    border: 1.5px solid #eee;
     border-radius: 50%;
   }
 `;

@@ -9,7 +9,7 @@ import logo from '~/assets/logo-purple.svg';
 
 export default function Header() {
   const account = useSelector((state) => state.account._profile.profiles);
-  console.log(account);
+
   return (
     <Container>
       <Content>
