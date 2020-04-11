@@ -13,76 +13,62 @@ import {
 } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 import ptBr from 'date-fns/locale/pt-BR';
+import Modal from 'react-bootstrap/Modal';
+import { Button } from 'react-bootstrap';
 
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { Modal } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  MdChevronLeft,
+  MdChevronRight,
+  MdCancel,
+  MdSchedule,
+  MdPhoneIphone,
+  MdPhoneInTalk,
+  MdAttachMoney,
+  MdTune,
+  MdModeEdit,
+  MdDelete,
+} from 'react-icons/md';
+import { FaWhatsapp } from 'react-icons/fa';
 import { Container, Time } from './styles';
 import api from '~/services/api';
 
 const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
-
 export default function Darshboard() {
-  const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
-
   const [schedule, setSchedule] = useState([]);
   const [date, setDate] = useState(new Date());
-  // const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
-      <p>Testanto</p>
-    </div>
-  );
+  const [modal, setModal] = useState(false);
+  const [scheduled, setScheduled] = useState(null);
 
   const dateFormatted = useMemo(
     () => format(date, "d 'de' MMMM", { locale: ptBr }),
     [date]
   );
 
+  const handleDeleteAppointment = async (id) => {
+    let response;
+    try {
+      response = await api.delete(`/v1/appointments/${id}`);
+
+      const scheduleDeleted = schedule.map((p) => {
+        if (p.appointment && p.appointment.id === id) {
+          p.appointment.canceled_at = response.data.data.canceled_at;
+        }
+
+        return p;
+      });
+
+      setSchedule(scheduleDeleted);
+      setModal(false);
+    } catch (error) {
+      console.tron.log(error);
+      alert(`Error não foi possível canceldar agendamento`);
+      setModal(false);
+    }
+  };
+
   useEffect(() => {
-    async function loadSchedule() {
+    const loadSchedule = async () => {
       const response = await api.get('/v1/schedule', {
         params: { date },
       });
@@ -107,7 +93,7 @@ export default function Darshboard() {
       });
 
       setSchedule(data);
-    }
+    };
 
     loadSchedule();
   }, [date]);
@@ -118,6 +104,15 @@ export default function Darshboard() {
 
   function handleNextDay() {
     setDate(addDays(date, 1));
+  }
+
+  function toggeShowModal(props) {
+    setModal(true);
+    console.tron.log(props);
+  }
+
+  function toggeCloseModal() {
+    setModal(false);
   }
 
   return (
@@ -131,34 +126,84 @@ export default function Darshboard() {
           <MdChevronRight size={36} color="#BFBFBF" onClick={handleNextDay} />
         </button>
       </header>
-
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        {body}
-      </Modal>
-
       <ul>
         {schedule.map((time) => (
           <Time
             key={time.time}
             past={time.past}
-            available={!time.appointment}
-            onClick={handleOpen}
+            available={!time.appointment || time.appointment.canceled_at}
+            onClick={() => {
+              // if (!time.appointment) return;
+              setScheduled(time);
+              toggeShowModal(time);
+            }}
           >
             <strong>{time.time}</strong>
             <span>
               {time.appointment ? time.appointment.profiles.name : 'Em aberto'}
-              <br />
-              {time.appointment ? time.appointment.profiles.phone : ''}
             </span>
             <span />
           </Time>
         ))}
       </ul>
+      <Modal
+        show={modal}
+        onHide={toggeCloseModal}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        // data={scheduled}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            AGENDAMENTO | Data
+            {scheduled && scheduled.time}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>
+            {scheduled && scheduled.appointment
+              ? scheduled.appointment.profiles.name
+              : null}
+          </h4>
+
+          <p>
+            Serviço:{' '}
+            {scheduled && scheduled.appointment
+              ? scheduled.appointment.service_provider_id
+              : null}
+          </p>
+          <p>Descrição: Maquiagem fina e especial, com os melhores produtos!</p>
+          <p>Observaçõs: Maquiagem de Noiva</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="dark" onClick={toggeCloseModal}>
+            <MdAttachMoney color="#eee" size={20} style={{ marginRight: 5 }} />
+            Venda
+          </Button>
+          <Button variant="success" onClick={toggeCloseModal}>
+            <FaWhatsapp color="#eee" size={20} style={{ marginRight: 5 }} />
+            WhatsApp
+          </Button>
+          <Button variant="warning" onClick={toggeCloseModal}>
+            <MdModeEdit color="#eee" size={20} style={{ marginRight: 5 }} />
+            Alterar
+          </Button>
+          {scheduled && scheduled.appointment && (
+            <Button
+              variant="danger"
+              onClick={() =>
+                handleDeleteAppointment(
+                  scheduled.appointment && scheduled.appointment.id
+                )
+              }
+            >
+              <MdDelete color="#eee" size={20} style={{ marginRight: 5 }} />
+              Deletar
+            </Button>
+          )}
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }

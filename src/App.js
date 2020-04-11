@@ -1,6 +1,7 @@
 import './config/Reactotron';
 import React from 'react';
 import { Router } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ToastContainer } from 'react-toastify';

@@ -52,19 +52,11 @@ export const Time = styled.li`
     color: ${(props) => (props.available ? '#BFBFBF' : '#FD8F01')};
     font-size: 28px;
     font-weight: normal;
-
-    /* &:hover {
-      color: ${darken(0.07, '#BFBFBF')};
-    } */
   }
 
   span {
     display: block;
     margin-top: 3px;
     color: ${(props) => (props.available ? '#BFBFBF' : '#FD8F01')};
-
-    /* &:hover {
-      color: ${darken(0.07, '#BFBFBF')};
-    } */
   }
 `;
