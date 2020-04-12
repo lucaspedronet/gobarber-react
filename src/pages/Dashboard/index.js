@@ -10,11 +10,13 @@ import {
   parseISO,
   setMilliseconds,
   isEqual,
+  isToday,
+  getISODay,
 } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 import ptBr from 'date-fns/locale/pt-BR';
-import Modal from 'react-bootstrap/Modal';
-import { Button } from 'react-bootstrap';
+// import Modal from 'react-bootstrap/Modal';
+import { Modal, Button } from 'react-bootstrap';
 
 import {
   MdChevronLeft,
@@ -31,8 +33,8 @@ import {
 import { FaWhatsapp } from 'react-icons/fa';
 import { Container, Time } from './styles';
 import api from '~/services/api';
-
-const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+import { week } from '~/utils/constants/week';
+import { range } from '~/utils/constants/range';
 
 export default function Darshboard() {
   const [schedule, setSchedule] = useState([]);
@@ -45,6 +47,10 @@ export default function Darshboard() {
     [date]
   );
 
+  const weekDay = useMemo(() => week.find((d) => d.key === getISODay(date)), [
+    date,
+  ]);
+
   const handleDeleteAppointment = async (id) => {
     let response;
     try {
@@ -52,7 +58,7 @@ export default function Darshboard() {
 
       const scheduleDeleted = schedule.map((p) => {
         if (p.appointment && p.appointment.id === id) {
-          p.appointment.canceled_at = response.data.data.canceled_at;
+          p.appointment.canceled_at = new Date(response.data.data.canceled_at);
         }
 
         return p;
@@ -61,8 +67,7 @@ export default function Darshboard() {
       setSchedule(scheduleDeleted);
       setModal(false);
     } catch (error) {
-      console.tron.log(error);
-      alert(`Error não foi possível canceldar agendamento`);
+      alert(`Error, não foi possível canceldar o agendamento`);
       setModal(false);
     }
   };
@@ -115,13 +120,16 @@ export default function Darshboard() {
     setModal(false);
   }
 
+  console.tron.log(weekDay);
   return (
     <Container>
       <header>
         <button type="button">
           <MdChevronLeft size={36} color="#BFBFBF" onClick={handlePrevDay} />
         </button>
-        <strong>{dateFormatted}</strong>
+        <strong>
+          {(isToday(date) && 'Hoje') || weekDay.value.week}, {dateFormatted}
+        </strong>
         <button type="button">
           <MdChevronRight size={36} color="#BFBFBF" onClick={handleNextDay} />
         </button>
