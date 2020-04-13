@@ -1,8 +1,7 @@
 import produce from 'immer';
 
 const INITIAL_STATE = {
-  _profile: null,
-  loading: false,
+  schedule: [],
 };
 
 export default function schedule(state = INITIAL_STATE, action) {

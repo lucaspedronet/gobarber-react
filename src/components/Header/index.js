@@ -27,11 +27,10 @@ export default function Header() {
             <Link to="/profile">
               <img
                 src={
-                  account.avatar
-                    ? account.avatar.url
-                    : 'https://api.adorable.io/avatars/50/abott@adorable.png'
+                  (account.avatar && account.avatar.url) ||
+                  'https://api.adorable.io/avatars/50/abott@adorable.png'
                 }
-                alt="Lucas Pedro"
+                alt={account.name}
               />
             </Link>
           </Profile>
