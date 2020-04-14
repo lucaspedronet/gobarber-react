@@ -74,9 +74,11 @@ export default function Darshboard() {
 
   useEffect(() => {
     const loadSchedule = async () => {
-      const response = await api.get('/v1/schedule', {
-        params: { date },
-      });
+      const [schedules] = await Promise.all([
+        api.get('/v1/schedule', {
+          params: { date },
+        }),
+      ]);
 
       // Pegando a timezone do navegador
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -91,7 +93,7 @@ export default function Darshboard() {
         return {
           time: `${hour}:00h`,
           past: isBefore(compareDate, new Date()),
-          appointment: response.data.find((a) =>
+          appointment: schedules.data.find((a) =>
             isEqual(parseISO(a.date), compareDate)
           ),
         };
