@@ -1,18 +1,23 @@
-export function scheduleLoadingRequest() {
+export function scheduleRequest(date) {
   return {
-    type: '@schedule/SHEDULE_LOADING_REQUEST',
+    type: '@schedule/SHEDULE_REQUEST',
+    payload: { date },
   };
 }
 
-export function scheduleLoadingSuccess(schedule) {
+export function scheduleSuccess(
+  schedulesToDay,
+  availiablesToDay,
+  appointmentsToDay
+) {
   return {
-    type: '@schedule/SCHEDULE_LOADING_SUCCESS',
-    payload: { schedule },
+    type: '@schedule/SCHEDULE_SUCCESS',
+    payload: { schedulesToDay, availiablesToDay, appointmentsToDay },
   };
 }
 
-export function scheduleLoadingFailure() {
+export function scheduleFailure() {
   return {
-    type: '@schedule/SCHEDULE_LOADING_SUCCESS',
+    type: '@schedule/SCHEDULE_SUCCESS',
   };
 }

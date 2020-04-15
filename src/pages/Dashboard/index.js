@@ -16,31 +16,34 @@ import {
 import { utcToZonedTime } from 'date-fns-tz';
 import ptBr from 'date-fns/locale/pt-BR';
 // import Modal from 'react-bootstrap/Modal';
+import { useDispatch } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 
 import {
-  MdChevronLeft,
   MdChevronRight,
-  MdCancel,
-  MdSchedule,
+  MdChevronLeft,
   MdPhoneIphone,
   MdPhoneInTalk,
   MdAttachMoney,
-  MdTune,
+  MdSchedule,
   MdModeEdit,
   MdDelete,
+  MdCancel,
+  MdTune,
 } from 'react-icons/md';
 import { FaWhatsapp } from 'react-icons/fa';
+import { scheduleRequest } from '~/store/modulos/schedule/actions';
+// import ModalAppointment from '~/components/ModalAppointment';
 import { Container, Time } from './styles';
 import api from '~/services/api';
 import { week } from '~/utils/constants/week';
-import { range } from '~/utils/constants/range';
 
 export default function Darshboard() {
   const [schedule, setSchedule] = useState([]);
   const [date, setDate] = useState(new Date());
   const [modal, setModal] = useState(false);
   const [scheduled, setScheduled] = useState(null);
+  const dispatch = useDispatch();
 
   const dateFormatted = useMemo(
     () => format(date, "d 'de' MMMM", { locale: ptBr }),
@@ -73,33 +76,49 @@ export default function Darshboard() {
   };
 
   useEffect(() => {
+    dispatch(scheduleRequest(date));
     const loadSchedule = async () => {
-      const [schedules] = await Promise.all([
+      // const dateNumeric = data.ge
+      const [appointments, schedules] = await Promise.all([
         api.get('/v1/schedule', {
           params: { date },
         }),
+        api.get('/v1/providers/available', {
+          params: { date: date.getTime() },
+        }),
       ]);
+
+      const { scheduleWeek, availiable } = schedules.data;
 
       // Pegando a timezone do navegador
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-      // add mais informações aos agendamentos
-      const data = range.map((hour) => {
-        const checkDate = setMilliseconds(
-          setSeconds(setMinutes(setHours(date, hour), 0), 0),
-          0
-        );
-        const compareDate = utcToZonedTime(checkDate, timezone);
-        return {
-          time: `${hour}:00h`,
-          past: isBefore(compareDate, new Date()),
-          appointment: schedules.data.find((a) =>
-            isEqual(parseISO(a.date), compareDate)
-          ),
-        };
-      });
+      // if (scheduleWeek.length <= 0) return setSchedule([]);
 
-      setSchedule(data);
+      // console.tron.log(schedule);
+      // console.tron.log(scheduleWeek);
+      if (scheduleWeek.length > 0) {
+        // add mais informações aos agendamentos
+        const data = scheduleWeek.map((time) => {
+          const [hour, minute] = time.split(':');
+          const checkDate = setMilliseconds(
+            setSeconds(setMinutes(setHours(date, hour), minute), 0),
+            0
+          );
+          const compareDate = utcToZonedTime(checkDate, timezone);
+          return {
+            time: `${hour}:${minute}`,
+            past: isBefore(compareDate, new Date()),
+            appointment: appointments.data.find((a) =>
+              isEqual(parseISO(a.date), compareDate)
+            ),
+          };
+        });
+
+        return setSchedule(data);
+      }
+
+      return setSchedule([]);
     };
 
     loadSchedule();
@@ -122,7 +141,6 @@ export default function Darshboard() {
     setModal(false);
   }
 
-  console.tron.log(weekDay);
   return (
     <Container>
       <header>
@@ -137,25 +155,32 @@ export default function Darshboard() {
         </button>
       </header>
       <ul>
-        {schedule.map((time) => (
-          <Time
-            key={time.time}
-            past={time.past}
-            available={!time.appointment || time.appointment.canceled_at}
-            onClick={() => {
-              // if (!time.appointment) return;
-              setScheduled(time);
-              toggeShowModal(time);
-            }}
-          >
-            <strong>{time.time}</strong>
-            <span>
-              {time.appointment ? time.appointment.profiles.name : 'Em aberto'}
-            </span>
-            <span />
-          </Time>
-        ))}
+        {schedule.length >= 0 &&
+          schedule.map((time) => (
+            <Time
+              key={time.time}
+              past={time.past}
+              available={!time.appointment || time.appointment.canceled_at}
+              onClick={() => {
+                setScheduled(time);
+                toggeShowModal(time);
+              }}
+            >
+              <strong>{time.time}</strong>
+              <span>
+                {time.appointment
+                  ? time.appointment.profiles.name
+                  : 'Em aberto'}
+              </span>
+              <span />
+            </Time>
+          ))}
       </ul>
+      {schedule.length <= 0 && (
+        <Time style={{ alignContent: 'center' }}>
+          <strong>Sem agenda!</strong>
+        </Time>
+      )}
       <Modal
         show={modal}
         onHide={toggeCloseModal}
@@ -166,8 +191,7 @@ export default function Darshboard() {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            AGENDAMENTO | Data
-            {scheduled && scheduled.time}
+            DETALHES DE AGENDAMENTO
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -180,11 +204,21 @@ export default function Darshboard() {
           <p>
             Serviço:{' '}
             {scheduled && scheduled.appointment
-              ? scheduled.appointment.service_provider_id
+              ? scheduled.appointment.service.title
               : null}
           </p>
-          <p>Descrição: Maquiagem fina e especial, com os melhores produtos!</p>
-          <p>Observaçõs: Maquiagem de Noiva</p>
+          <p>
+            Descrição:{' '}
+            {scheduled && scheduled.appointment
+              ? scheduled.appointment.service.description
+              : null}
+          </p>
+          <p>
+            Telefone:{' '}
+            {scheduled && scheduled.appointment
+              ? scheduled.appointment.profiles.phone
+              : null}
+          </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="dark" onClick={toggeCloseModal}>

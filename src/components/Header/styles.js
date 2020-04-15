@@ -33,6 +33,7 @@ export const Content = styled.div`
       text-decoration: none;
       padding: 7px;
       border-radius: 4px;
+      margin-right: 10px;
     }
   }
 
