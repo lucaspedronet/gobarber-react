@@ -1,6 +1,6 @@
 export function scheduleRequest(date) {
   return {
-    type: '@schedule/SHEDULE_REQUEST',
+    type: '@schedule/SCHEDULE_REQUEST',
     payload: { date },
   };
 }
@@ -16,8 +16,15 @@ export function scheduleSuccess(
   };
 }
 
+export function scheduleFormattedSuccess(scheduleFormatted) {
+  return {
+    type: '@schedule/SCHEDULE_FORMATTED_SUCCESS',
+    payload: { scheduleFormatted },
+  };
+}
+
 export function scheduleFailure() {
   return {
-    type: '@schedule/SCHEDULE_SUCCESS',
+    type: '@schedule/SCHEDULE_FAILURE',
   };
 }

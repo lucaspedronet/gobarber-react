@@ -1,3 +1,4 @@
+/* eslint-disable import/no-useless-path-segments */
 import React, { useState, useMemo, useEffect } from 'react';
 import {
   format,
@@ -16,14 +17,12 @@ import {
 import { utcToZonedTime } from 'date-fns-tz';
 import ptBr from 'date-fns/locale/pt-BR';
 // import Modal from 'react-bootstrap/Modal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 
 import {
   MdChevronRight,
   MdChevronLeft,
-  MdPhoneIphone,
-  MdPhoneInTalk,
   MdAttachMoney,
   MdSchedule,
   MdModeEdit,
@@ -32,11 +31,15 @@ import {
   MdTune,
 } from 'react-icons/md';
 import { FaWhatsapp } from 'react-icons/fa';
-import { scheduleRequest } from '~/store/modulos/schedule/actions';
+import {
+  scheduleRequest,
+  scheduleFormattedSuccess,
+} from '~/store/modulos/schedule/actions';
 // import ModalAppointment from '~/components/ModalAppointment';
 import { Container, Time } from './styles';
 import api from '~/services/api';
 import { week } from '~/utils/constants/week';
+import { store } from '~/store';
 
 export default function Darshboard() {
   const [schedule, setSchedule] = useState([]);
@@ -44,6 +47,13 @@ export default function Darshboard() {
   const [modal, setModal] = useState(false);
   const [scheduled, setScheduled] = useState(null);
   const dispatch = useDispatch();
+  const {
+    loading,
+    schedulesToDay,
+    availiablesToDay,
+    appointmentsToDay,
+    scheduleFormatted,
+  } = useSelector((state) => state.schedule);
 
   const dateFormatted = useMemo(
     () => format(date, "d 'de' MMMM", { locale: ptBr }),
@@ -55,24 +65,28 @@ export default function Darshboard() {
   ]);
 
   const handleDeleteAppointment = async (id) => {
-    let response;
-    try {
-      response = await api.delete(`/v1/appointments/${id}`);
+    const response = await api.delete(`/v1/appointments/${id}`);
 
-      const scheduleDeleted = schedule.map((p) => {
-        if (p.appointment && p.appointment.id === id) {
-          p.appointment.canceled_at = new Date(response.data.data.canceled_at);
-        }
+    console.tron.log(response.data);
+    console.tron.log(scheduleFormatted);
 
-        return p;
-      });
+    const scheduleDeleted = scheduleFormatted.map((p) => {
+      if (p.appointment && p.appointment.id === id) {
+        console.log(p.appointment);
+        console.log(p.appointment.canceled_at);
+        p.appointment.canceled_at = response.data.data.canceled_at;
+      }
 
-      setSchedule(scheduleDeleted);
-      setModal(false);
-    } catch (error) {
-      alert(`Error, não foi possível canceldar o agendamento`);
-      setModal(false);
-    }
+      return p;
+    });
+
+    dispatch(scheduleFormattedSuccess(scheduleDeleted));
+    setScheduled(scheduleDeleted);
+    setModal(false);
+    console.tron.log(scheduleDeleted);
+    // console.tron.log(error);
+    // alert(`Error, não foi possível canceldar o agendamento`);
+    // setModal(false);
   };
 
   useEffect(() => {
@@ -93,10 +107,6 @@ export default function Darshboard() {
       // Pegando a timezone do navegador
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-      // if (scheduleWeek.length <= 0) return setSchedule([]);
-
-      // console.tron.log(schedule);
-      // console.tron.log(scheduleWeek);
       if (scheduleWeek.length > 0) {
         // add mais informações aos agendamentos
         const data = scheduleWeek.map((time) => {
@@ -115,14 +125,15 @@ export default function Darshboard() {
           };
         });
 
-        return setSchedule(data);
+        dispatch(scheduleFormattedSuccess(data));
+        // return setSchedule(data);
       }
 
       return setSchedule([]);
     };
 
     loadSchedule();
-  }, [date]);
+  }, [date, dispatch]);
 
   function handlePrevDay() {
     setDate(subDays(date, 1));
@@ -134,7 +145,6 @@ export default function Darshboard() {
 
   function toggeShowModal(props) {
     setModal(true);
-    console.tron.log(props);
   }
 
   function toggeCloseModal() {
@@ -155,8 +165,8 @@ export default function Darshboard() {
         </button>
       </header>
       <ul>
-        {schedule.length >= 0 &&
-          schedule.map((time) => (
+        {scheduleFormatted.length >= 0 &&
+          scheduleFormatted.map((time) => (
             <Time
               key={time.time}
               past={time.past}
@@ -176,9 +186,14 @@ export default function Darshboard() {
             </Time>
           ))}
       </ul>
-      {schedule.length <= 0 && (
+      {schedulesToDay.length <= 0 && (
         <Time style={{ alignContent: 'center' }}>
           <strong>Sem agenda!</strong>
+        </Time>
+      )}
+      {loading && (
+        <Time style={{ alignContent: 'center' }}>
+          <strong>Carregando...</strong>
         </Time>
       )}
       <Modal
@@ -200,7 +215,6 @@ export default function Darshboard() {
               ? scheduled.appointment.profiles.name
               : null}
           </h4>
-
           <p>
             Serviço:{' '}
             {scheduled && scheduled.appointment

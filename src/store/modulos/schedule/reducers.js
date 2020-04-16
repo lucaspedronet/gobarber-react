@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   schedulesToDay: [],
   availiablesToDay: [],
   appointmentsToDay: [],
+  scheduleFormatted: [],
 };
 
 export default function schedule(state = INITIAL_STATE, action) {
@@ -15,14 +16,26 @@ export default function schedule(state = INITIAL_STATE, action) {
         break;
       }
       case '@schedule/SCHEDULE_SUCCESS': {
-        draft.appointmentsToDay = action.payload.appointmentsToDay;
-        draft.availiablesToDay = action.payload.availiablesToDay;
-        draft.schedulesToDay = action.payload.schedulesToDay;
+        const {
+          schedulesToDay,
+          availiablesToDay,
+          appointmentsToDay,
+        } = action.payload;
+        draft.schedulesToDay = schedulesToDay || [];
+        draft.availiablesToDay = availiablesToDay || [];
+        draft.appointmentsToDay = appointmentsToDay || [];
         draft.loading = false;
         break;
       }
       case '@schedule/SCHEDULE_FAILURE': {
+        draft.appointmentsToDay = [];
+        draft.availiablesToDay = [];
+        draft.schedulesToDay = [];
         draft.loading = false;
+        break;
+      }
+      case '@schedule/SCHEDULE_FORMATTED_SUCCESS': {
+        draft.scheduleFormatted = action.payload.scheduleFormatted || [];
         break;
       }
       default:
