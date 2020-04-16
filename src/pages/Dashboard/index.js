@@ -29,7 +29,7 @@ import { store } from '~/store';
 export default function Darshboard() {
   const [schedule, setSchedule] = useState([]);
   const [date, setDate] = useState(new Date());
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
   const [scheduled, setScheduled] = useState(null);
 
   const { loading } = store.getState().schedule;
@@ -177,9 +177,7 @@ export default function Darshboard() {
           scheduled={scheduled}
           removeSchedule={() => removeSchedule(scheduled.appointment.id)}
           toggeCloseModal={() => setModal(false)}
-        >
-          Testando
-        </ModalAppointment>
+        />
       )}
     </Container>
   );

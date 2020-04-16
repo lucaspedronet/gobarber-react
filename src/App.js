@@ -19,7 +19,7 @@ export default function App() {
         <Router history={history}>
           <Routes />
           <GlobalStyle />
-          <ToastContainer autoClose={3000} />
+          <ToastContainer autoClose={5000} />
         </Router>
       </PersistGate>
     </Provider>
