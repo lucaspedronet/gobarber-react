@@ -17,25 +17,10 @@ import {
 import { utcToZonedTime } from 'date-fns-tz';
 import ptBr from 'date-fns/locale/pt-BR';
 // import Modal from 'react-bootstrap/Modal';
-import { useDispatch, useSelector } from 'react-redux';
-import { Modal, Button } from 'react-bootstrap';
-
-import {
-  MdChevronRight,
-  MdChevronLeft,
-  MdAttachMoney,
-  MdSchedule,
-  MdModeEdit,
-  MdDelete,
-  MdCancel,
-  MdTune,
-} from 'react-icons/md';
+import { MdChevronRight, MdChevronLeft } from 'react-icons/md';
 import { FaWhatsapp } from 'react-icons/fa';
-import {
-  scheduleRequest,
-  scheduleFormattedSuccess,
-} from '~/store/modulos/schedule/actions';
-// import ModalAppointment from '~/components/ModalAppointment';
+import { toast } from 'react-toastify';
+import ModalAppointment from '~/components/ModalAppointment';
 import { Container, Time } from './styles';
 import api from '~/services/api';
 import { week } from '~/utils/constants/week';
@@ -46,14 +31,8 @@ export default function Darshboard() {
   const [date, setDate] = useState(new Date());
   const [modal, setModal] = useState(false);
   const [scheduled, setScheduled] = useState(null);
-  const dispatch = useDispatch();
-  const {
-    loading,
-    schedulesToDay,
-    availiablesToDay,
-    appointmentsToDay,
-    scheduleFormatted,
-  } = useSelector((state) => state.schedule);
+
+  const { loading } = store.getState().schedule;
 
   const dateFormatted = useMemo(
     () => format(date, "d 'de' MMMM", { locale: ptBr }),
@@ -64,76 +43,59 @@ export default function Darshboard() {
     date,
   ]);
 
-  const handleDeleteAppointment = async (id) => {
-    const response = await api.delete(`/v1/appointments/${id}`);
-
-    console.tron.log(response.data);
-    console.tron.log(scheduleFormatted);
-
-    const scheduleDeleted = scheduleFormatted.map((p) => {
-      if (p.appointment && p.appointment.id === id) {
-        console.log(p.appointment);
-        console.log(p.appointment.canceled_at);
-        p.appointment.canceled_at = response.data.data.canceled_at;
-      }
-
-      return p;
-    });
-
-    dispatch(scheduleFormattedSuccess(scheduleDeleted));
-    setScheduled(scheduleDeleted);
-    setModal(false);
-    console.tron.log(scheduleDeleted);
-    // console.tron.log(error);
-    // alert(`Error, não foi possível canceldar o agendamento`);
-    // setModal(false);
-  };
+  // const scheduleFormatted = useMemo(
+  //   () => dispatch(scheduleFormattedSuccess(schedule)),
+  //   [schedule, dispatch]
+  // );
 
   useEffect(() => {
-    dispatch(scheduleRequest(date));
     const loadSchedule = async () => {
-      // const dateNumeric = data.ge
-      const [appointments, schedules] = await Promise.all([
-        api.get('/v1/schedule', {
-          params: { date },
-        }),
-        api.get('/v1/providers/available', {
-          params: { date: date.getTime() },
-        }),
-      ]);
+      try {
+        const [appointments, schedules] = await Promise.all([
+          api.get('/v1/schedule', {
+            params: { date },
+          }),
+          api.get('/v1/providers/available', {
+            params: { date: date.getTime() },
+          }),
+        ]);
 
-      const { scheduleWeek, availiable } = schedules.data;
+        const { scheduleWeek } = schedules.data;
 
-      // Pegando a timezone do navegador
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-      if (scheduleWeek.length > 0) {
-        // add mais informações aos agendamentos
-        const data = scheduleWeek.map((time) => {
-          const [hour, minute] = time.split(':');
-          const checkDate = setMilliseconds(
-            setSeconds(setMinutes(setHours(date, hour), minute), 0),
-            0
-          );
-          const compareDate = utcToZonedTime(checkDate, timezone);
-          return {
-            time: `${hour}:${minute}`,
-            past: isBefore(compareDate, new Date()),
-            appointment: appointments.data.find((a) =>
-              isEqual(parseISO(a.date), compareDate)
-            ),
-          };
-        });
+        if (scheduleWeek.length > 0) {
+          const data = scheduleWeek.map((time) => {
+            const [hour, minute] = time.split(':');
+            const checkDate = setMilliseconds(
+              setSeconds(setMinutes(setHours(date, hour), minute), 0),
+              0
+            );
+            const compareDate = utcToZonedTime(checkDate, timezone);
+            return {
+              time: `${hour}:${minute}`,
+              past: isBefore(compareDate, new Date()),
+              appointment: appointments.data.find((a) =>
+                isEqual(parseISO(a.date), compareDate)
+              ),
+            };
+          });
 
-        dispatch(scheduleFormattedSuccess(data));
-        // return setSchedule(data);
+          // dispatch(scheduleFormattedSuccess(data));
+          return setSchedule(data);
+        }
+
+        return setSchedule([]);
+      } catch (error) {
+        toast.error(
+          'Falha, não foi possível carregar sua agenda, verifique sua conexão!'
+        );
+        return error;
       }
-
-      return setSchedule([]);
     };
 
     loadSchedule();
-  }, [date, dispatch]);
+  }, [date]);
 
   function handlePrevDay() {
     setDate(subDays(date, 1));
@@ -143,12 +105,25 @@ export default function Darshboard() {
     setDate(addDays(date, 1));
   }
 
-  function toggeShowModal(props) {
-    setModal(true);
-  }
+  async function removeSchedule(id) {
+    let response;
+    try {
+      response = await api.delete(`/v1/appointments/${id}`);
+      const newSchedule = schedule.map((p) => {
+        if (p.appointment && p.appointment.id === id) {
+          p.appointment.canceled_at = response.data.data.canceled_at;
+        }
 
-  function toggeCloseModal() {
-    setModal(false);
+        return p;
+      });
+
+      setSchedule(newSchedule);
+      setModal(false);
+    } catch (error) {
+      alert(error.message);
+      setModal(false);
+      toast.error('ERRO, não foi possível cancelar o agendamento!');
+    }
   }
 
   return (
@@ -165,15 +140,15 @@ export default function Darshboard() {
         </button>
       </header>
       <ul>
-        {scheduleFormatted.length >= 0 &&
-          scheduleFormatted.map((time) => (
+        {schedule.length >= 0 &&
+          schedule.map((time) => (
             <Time
               key={time.time}
               past={time.past}
               available={!time.appointment || time.appointment.canceled_at}
               onClick={() => {
                 setScheduled(time);
-                toggeShowModal(time);
+                setModal(!modal);
               }}
             >
               <strong>{time.time}</strong>
@@ -186,7 +161,7 @@ export default function Darshboard() {
             </Time>
           ))}
       </ul>
-      {schedulesToDay.length <= 0 && (
+      {schedule.length <= 0 && (
         <Time style={{ alignContent: 'center' }}>
           <strong>Sem agenda!</strong>
         </Time>
@@ -196,72 +171,16 @@ export default function Darshboard() {
           <strong>Carregando...</strong>
         </Time>
       )}
-      <Modal
-        show={modal}
-        onHide={toggeCloseModal}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        // data={scheduled}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            DETALHES DE AGENDAMENTO
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>
-            {scheduled && scheduled.appointment
-              ? scheduled.appointment.profiles.name
-              : null}
-          </h4>
-          <p>
-            Serviço:{' '}
-            {scheduled && scheduled.appointment
-              ? scheduled.appointment.service.title
-              : null}
-          </p>
-          <p>
-            Descrição:{' '}
-            {scheduled && scheduled.appointment
-              ? scheduled.appointment.service.description
-              : null}
-          </p>
-          <p>
-            Telefone:{' '}
-            {scheduled && scheduled.appointment
-              ? scheduled.appointment.profiles.phone
-              : null}
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="dark" onClick={toggeCloseModal}>
-            <MdAttachMoney color="#eee" size={20} style={{ marginRight: 5 }} />
-            Venda
-          </Button>
-          <Button variant="success" onClick={toggeCloseModal}>
-            <FaWhatsapp color="#eee" size={20} style={{ marginRight: 5 }} />
-            WhatsApp
-          </Button>
-          <Button variant="warning" onClick={toggeCloseModal}>
-            <MdModeEdit color="#eee" size={20} style={{ marginRight: 5 }} />
-            Alterar
-          </Button>
-          {scheduled && scheduled.appointment && (
-            <Button
-              variant="danger"
-              onClick={() =>
-                handleDeleteAppointment(
-                  scheduled.appointment && scheduled.appointment.id
-                )
-              }
-            >
-              <MdDelete color="#eee" size={20} style={{ marginRight: 5 }} />
-              Deletar
-            </Button>
-          )}
-        </Modal.Footer>
-      </Modal>
+      {modal && (
+        <ModalAppointment
+          modal={modal}
+          scheduled={scheduled}
+          removeSchedule={() => removeSchedule(scheduled.appointment.id)}
+          toggeCloseModal={() => setModal(false)}
+        >
+          Testando
+        </ModalAppointment>
+      )}
     </Container>
   );
 }

@@ -3,9 +3,19 @@ import { Modal, Button } from 'react-bootstrap';
 import { MdAttachMoney, MdModeEdit, MdDelete } from 'react-icons/md';
 import { FaWhatsapp } from 'react-icons/fa';
 
+import { store } from '~/store';
+
 // import { Container } from './styles';
 
-function ModalAppointment() {
+function ModalAppointment({
+  scheduled,
+  modal,
+  toggeCloseModal,
+  removeSchedule,
+}) {
+  const { scheduleFormatted } = store.getState().schedule;
+  // console.tron.log(scheduleFormatted);
+  console.tron.log(scheduled);
   return (
     <Modal
       show={modal}
@@ -26,7 +36,6 @@ function ModalAppointment() {
             ? scheduled.appointment.profiles.name
             : null}
         </h4>
-
         <p>
           Serviço:{' '}
           {scheduled && scheduled.appointment
@@ -47,11 +56,11 @@ function ModalAppointment() {
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="dark" onClick={toggeCloseModal}>
+        <Button variant="dark">
           <MdAttachMoney color="#eee" size={20} style={{ marginRight: 5 }} />
           Venda
         </Button>
-        <Button variant="success" onClick={toggeCloseModal}>
+        <Button variant="success">
           <FaWhatsapp color="#eee" size={20} style={{ marginRight: 5 }} />
           WhatsApp
         </Button>
@@ -60,14 +69,7 @@ function ModalAppointment() {
           Alterar
         </Button>
         {scheduled && scheduled.appointment && (
-          <Button
-            variant="danger"
-            onClick={() =>
-              handleDeleteAppointment(
-                scheduled.appointment && scheduled.appointment.id
-              )
-            }
-          >
+          <Button variant="danger" onClick={removeSchedule}>
             <MdDelete color="#eee" size={20} style={{ marginRight: 5 }} />
             Deletar
           </Button>
